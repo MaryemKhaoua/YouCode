@@ -3,30 +3,23 @@ class DataBase{
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
+    private $dbname = 'youcode';
 
-    public static function connect()
-    {
+
+
+    public function connexion() {
         try {
-            $conn = new PDO(
-                "mysql:host= " . self::$servername . ";dbname=youcode",
-                self::$username,
-                self::$password
-            );
-            $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            $this->conn = new PDO("mysql:host={$this->servername};dbname={$this->dbname}",$this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo 'conencted success';
+            
+        } catch (PDOException $exception) {
+            echo 'error de conection: ' . $exception->getMessage();
         }
 
-        return $conn;
+        return $this->conn;
     }
 }
-
-
-
-
-
-
-
-
-
+$Database = new Database();
+$Database->connexion();
 ?>
