@@ -1,3 +1,26 @@
+<?php
+
+include 'User.php'; // Assuming User.php contains your User class
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && $_POST['submit'] === 'register') {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // You might want to perform additional validation and sanitization here
+
+    $user = new User(); // Create an instance of the User class
+    $result = $user->register($nom, $prenom, $email, $password);
+
+    if ($result) {
+        echo "Registration successful!";
+    } else {
+        echo "Registration failed!";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +42,7 @@
             <h2 class="text-center">Sign Up</h2>
           </div>
           <div class="card-body">
-          <form action='/app/controllers/RegisterController.php' method='POST'>
+            <form action='user.php' method='POST'>
                 
               <div class="form-group">
                 <label for="firstName">Nom</label>

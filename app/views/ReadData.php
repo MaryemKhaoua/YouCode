@@ -11,4 +11,4 @@ class Apprenant extends Database {
 
 }
 $apprenantObj = new Apprenant();
-$show = $apprenantObj->getApprenant();
+$user = $apprenantObj->getApprenant();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>YouCode</title>
+<title>Bootstrap</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -248,8 +248,8 @@ table.table .avatar {
                             <h2>Manage <b>Apprenant</b></h2>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#addApprenantModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Un nouveau Apprenant</span></a>
-                            <a href="#createClassModal" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE24D;</i> <span>Créer une Classe</span></a>
+                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                         </div>
                     </div>
                 </div>
@@ -264,16 +264,15 @@ table.table .avatar {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($user ?? [] as $apprenant) : ?>
+                        <?php foreach ($show ?? [] as $apprenant) : ?>
                             <tr>
                                 <td><?= $apprenant['id_user'] ?></td>
                                 <td><?= $apprenant['nom'] ?></td>
                                 <td><?= $apprenant['prenom'] ?></td>
                                 <td><?= $apprenant['email'] ?></td>
                                 <td>
-                                    <a href="#editApprenantModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteApprenantModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                                    <a href="#addClassModal" class="add-class" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Add Class">&#xE147;</i></a>
+                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -283,11 +282,11 @@ table.table .avatar {
         </div>
     </div>
 
-    <!-- Modals for Apprenant Management -->
+    <!-- Add your modals here -->
 
-    <!-- Add Apprenant Modal HTML -->
-    <div id="addApprenantModal" class="modal fade">
-    <div class="modal-dialog">
+    <!-- Edit Modal HTML -->
+    <div id="addEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <form action="AddApprenant.php" method="POST">
                     <div class="modal-header">
@@ -312,62 +311,40 @@ table.table .avatar {
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="submit" class="btn btn-success" value="Add">
                     </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <!-- Edit Apprenant Modal HTML -->
-    <div id="editApprenantModal" class="modal fade">
-    <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="AddApprenant.php" method="POST">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modifier un Appranant</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Nom</label>
-                            <input type="text" class="form-control" name="nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Prenom</label>
-                            <input type="text" class="form-control" name="prenom" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Add">
-                    </div>
-    </div>
-
-    <!-- Delete Apprenant Modal HTML -->
-    <div id="deleteApprenantModal" class="modal fade">
-       
-    </div>
-
-    <!-- Create Class Modal HTML -->
-    <div id="createClassModal" class="modal fade">
+    <!-- Edit Modal HTML -->
+    <div id="editEmployeeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="CreateClass.php" method="POST">
+                <form>
                     <div class="modal-header">
-                        <h4 class="modal-title">Créer une Classe</h4>
+                        <h4 class="modal-title">Edit apprenant</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Nom de la Classe</label>
-                            <input type="text" class="form-control" name="class_name" required>
+                            <label>nom</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>prenom</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>email</label>
+                            <input type="email" class="form-control" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Créer">
+                        <input type="submit" class="btn btn-info" value="Save">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+</body>
+</html>
