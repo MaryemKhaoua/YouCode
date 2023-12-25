@@ -7,7 +7,7 @@ $dbname = "youcode";
 
 $apprenantObj = new Apprenant($servername, $username, $password, $dbname);
 
-// Handle form submissions
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['submit'])) {
         if ($_POST['submit'] === 'add') {
@@ -27,13 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Handle delete action
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $apprenantId = $_GET['id'];
     $apprenantObj->deleteApprenant($apprenantId);
 }
 
-// Get apprenants for display
 $apprenants = $apprenantObj->getApprenants();
 ?>
 
