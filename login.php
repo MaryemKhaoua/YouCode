@@ -1,6 +1,6 @@
 <?php
 
-include 'User.php'; // Assuming User.php contains your User class
+include 'User.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && $_POST['submit'] === 'register') {
     $nom = $_POST['nom'];
@@ -8,9 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && $_POST['
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // You might want to perform additional validation and sanitization here
-
-    $user = new User(); // Create an instance of the User class
+   
+    $user = new User();
     $result = $user->register($nom, $prenom, $email, $password);
 
     if ($result) {
