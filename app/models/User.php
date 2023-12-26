@@ -1,5 +1,5 @@
 <?php
-require_once '/core/Database.php';
+require_once 'C:\xampp\htdocs\YouCode\core\DataBase.php';
 
 
 class User extends DataBase {

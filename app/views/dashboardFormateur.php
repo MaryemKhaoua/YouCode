@@ -249,7 +249,6 @@ table.table .avatar {
                         </div>
                         <div class="col-sm-6">
                             <a href="#addApprenantModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Ajouter Un nouveau Apprenant</span></a>
-                            <a href="#createClassModal" class="btn btn-info" data-toggle="modal"><i class="material-icons">&#xE24D;</i> <span>Créer une Classe</span></a>
                         </div>
                     </div>
                 </div>

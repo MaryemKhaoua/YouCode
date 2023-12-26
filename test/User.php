@@ -1,6 +1,7 @@
 <?php
 
 include 'DataBase.php';
+
 class User extends DataBase {
     public function register($nom, $prenom, $email, $password) {
         $query = 'INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)';

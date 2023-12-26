@@ -7,10 +7,6 @@
 </head>
 <body>
 
-<center>
-    <h1 class='mt-5'>Sign Up Form</h1>
-  
-</center>
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
@@ -19,7 +15,7 @@
             <h2 class="text-center">Sign Up</h2>
           </div>
           <div class="card-body">
-          <form action='/app/controllers/RegisterController.php' method='POST'>
+          <form action='index.php' method='POST'>
                 
               <div class="form-group">
                 <label for="firstName">Nom</label>
@@ -37,8 +33,7 @@
                 <label for="password">Mot de passe</label>
                 <input type="password" class="form-control" id="password" name='password'>
               </div>
-              <!-- <input type="hidden" value='3' name='id_role' > -->
-              <button type="submit" name='submit' value='register' class="btn btn-primary btn-block">S'inscrire</button>
+              <button type="submit" name='action' value='register' class="btn btn-primary btn-block">S'inscrire</button>
             </form>
             <p class='mt-3'>
               vous avez déjà un compte ? 
